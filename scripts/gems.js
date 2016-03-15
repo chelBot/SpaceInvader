@@ -1,4 +1,5 @@
 Quintus.Gems = function(Q){
+	var count = 0;
 	Q.component("commonToken", {
 		added : function() {
 			var entity = this.entity;
@@ -8,6 +9,11 @@ Quintus.Gems = function(Q){
 					Q.audio.play("coin.mp3");
 					collision.obj.p.vy = -800;
 					this.destroy();
+					count++;
+					console.log(count);
+				}
+				if(count === 6){
+					Q.stageScene("endGame",1, { label: "You Won!" });
 				}
 			});
 
@@ -20,6 +26,5 @@ Quintus.Gems = function(Q){
 			this._super(p, {});
 			this.add("2d, commonToken");
 		}
-
 	});
 };
