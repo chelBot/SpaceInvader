@@ -10,19 +10,15 @@ Quintus.Gems = function(Q){
 					collision.obj.p.vy = -800;
 					this.destroy();
 					count++;
-					console.log(count);
 				}
 				if(count === 6){
 					Q.stageScene("endGame",1, { label: "You Won!" });
 				}
 			});
-
 		}
 	});
 	Q.Sprite.extend("Gem", {
 		init: function(p){
-			// this._super(p, {});
-			// this.add("commonToken");
 			this._super(p, {});
 			this.add("2d, commonToken");
 		}
